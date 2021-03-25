@@ -22,11 +22,11 @@ const useStyles = makeStyles((theme) => ({
 
 function CardDetail() {
     const { index, title, author } = useParams();
-    console.log(index, title, author);
+/*eslint-disable */
     useEffect(() => {
-        console.log("line 8");
         fetchItem()
     }, [index, title, author]);
+/*eslint-enable */
 
     const [item, setItem] = useState('');
 
