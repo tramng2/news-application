@@ -1,38 +1,58 @@
-.App {
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.card_item:hover {
+  transform: translateY(-10px);
+}
+.card_item{
+  height: 30rem;
+  margin: 1rem;
+  padding: 1rem;
+  transition: all 0.5s;
+  text-decoration: none
+}
+.about_title{
+  height: 20rem;
+  padding: 4rem;
+  background-color: #80808018;
+}
+
+.about_features{
+  display: flex;
+  padding: 4rem 0 4rem 0;
+  margin: 0 2rem 0 2rem;
+  flex-direction: row;
+}
+.about_features_item{
+  flex-basis: 0;
+  flex-grow: 1;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.about_footer{
+  background-color:#3f51b5;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: #ffffff;
+  text-align: center;
+}
+.card_detail {
+  margin: 5rem 10rem 0 5rem;
+  border: 1px solid red;
+  padding: 0 10rem 0 10rem
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card_detail img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+object-fit: cover;  
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ul{
+  margin: 0;
+  padding: 0;
 }
