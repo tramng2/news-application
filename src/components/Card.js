@@ -7,7 +7,7 @@ function Card({ data }) {
     return (
         <div className="card">
             {data.map((item, index) =>
-                <Link className="card_item" key={index} to={`/${index}/${item.title}/${item.author}/${index}`}>
+                <Link className="card_item" key={index} to={`/news/details/${index}/${item.title}`}>
                     <CardItem item={item} className="card_item" />
                 </Link>
             )}

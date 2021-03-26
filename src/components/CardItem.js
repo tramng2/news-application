@@ -6,34 +6,6 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
-const theme = createMuiTheme({
-    overrides: {
-        MuiCardHeader: {
-            root: {
-                alignItems: 'start'
-            },
-            title: {
-                display: '-webkit-box',
-                WebkitBoxOrient: 'vertical',
-                WebkitLineClamp: 2,
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-            }
-        }
-    }
-});
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        maxWidth: 345,
-        height: '30rem',
-        alignItems: 'top'
-    },
-    media: {
-        height: 0,
-        paddingTop: '56.25%', // 16:9
-    },
-}));
 
 export default function CardItem({ item }) {
     const classes = useStyles();
@@ -59,3 +31,41 @@ export default function CardItem({ item }) {
         </ThemeProvider>
     );
 }
+
+const theme = createMuiTheme({
+    overrides: {
+        MuiCardHeader: {
+            root: {
+                alignItems: 'start'
+            },
+            title: {
+                display: '-webkit-box',
+                WebkitBoxOrient: 'vertical',
+                WebkitLineClamp: 2,
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+            }
+        },
+        MuiTypography: {
+            body2 : {
+                display: '-webkit-box',
+                WebkitBoxOrient: 'vertical',
+                WebkitLineClamp: 5,
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+            }
+        }
+    }
+});
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        maxWidth: 345,
+        height: '30rem',
+        alignItems: 'top'
+    },
+    media: {
+        height: 0,
+        paddingTop: '56.25%', // 16:9
+    },
+}));

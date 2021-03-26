@@ -4,7 +4,6 @@ import {DataContext} from '../DataContext'
  
 function Home() {
     const [data, setData] = useContext(DataContext);
-console.log(data)
     return (
         <div>
             {!data.length ? <h4>Loading</h4> : <Card data={data}/>}

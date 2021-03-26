@@ -5,8 +5,7 @@ export const DataContext = createContext();
 
 export const DataProvider = props => {
     const [data, setData] = useState([]);
-    console.log(process.env)
-
+    
     useEffect(() => {
         const getData = async () => {
             const { data: { articles } } = await axios

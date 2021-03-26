@@ -17,7 +17,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={() => <Home data/>} />
           <Route path="/about" exact component={About} />
-          <Route path="/:index/:title/:author" render={() => <CardDetail/>}/>
+          <Route path="/news/details/:index/:title" render={() => <CardDetail/>}/>
         </Switch>
     </DataProvider>
       </div>

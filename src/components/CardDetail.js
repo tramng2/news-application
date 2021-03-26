@@ -5,27 +5,13 @@ import axios from 'axios';
 import { Typography, Card, CardMedia, CardHeader, CardContent } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        maxWidth: '50%',
-        margin: '0 auto',
-        border: "none", 
-        boxShadow: "none",
-        borderRadius:0,
-        marginTop: '2rem'
-
-    },
-    media: {
-        paddingTop: '56.25%', // 16:9
-    },
-}));
 
 function CardDetail() {
-    const { index, title, author } = useParams();
+    const { index, title } = useParams();
 /*eslint-disable */
     useEffect(() => {
         fetchItem()
-    }, [index, title, author]);
+    }, [index, title]);
 /*eslint-enable */
 
     const [item, setItem] = useState('');
@@ -41,8 +27,6 @@ function CardDetail() {
     const classes = useStyles();
     return (
         <div>
-    
-            {console.log("line 44",item[0])}
             {!item.length ? <h4>Loading</h4> :
                  <Card className={classes.root}>
                  <CardHeader
@@ -67,3 +51,19 @@ function CardDetail() {
 }
 
 export default CardDetail;
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        maxWidth: '50%',
+        margin: '0 auto',
+        border: "none", 
+        boxShadow: "none",
+        borderRadius:0,
+        marginTop: '2rem'
+
+    },
+    media: {
+        paddingTop: '56.25%', // 16:9
+    },
+})); 
+
