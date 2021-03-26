@@ -31,7 +31,8 @@ function CardDetail() {
     const [item, setItem] = useState('');
 
     const fetchItem = async () => {
-        const { data: { articles } } = await axios.get('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=60ca52d7e2d644bbbf28bfb212b15827')
+        const { data: { articles } } = await axios
+                .get(`https://gnews.io/api/v4/search?q=example&token=${process.env.REACT_APP_NEWS_API_KEY}`)
 
         const article = articles.filter((el, idx) => idx === +index)
         setItem(article);
@@ -40,6 +41,8 @@ function CardDetail() {
     const classes = useStyles();
     return (
         <div>
+    
+            {console.log("line 44",item[0])}
             {!item.length ? <h4>Loading</h4> :
                  <Card className={classes.root}>
                  <CardHeader
@@ -47,10 +50,10 @@ function CardDetail() {
                      title={item[0].title}
                      subheader={`public at: ${item[0].publishedAt}`}
                  />
-                 <CardMedia
-                     className={classes.media}
-                     image={item[0].urlToImage}
-                 />
+                  <CardMedia
+                    className={classes.media}
+                    image={item[0].image}
+                />
                  <CardContent>
                      <Typography variant="body2" color="textSecondary" component="p">
                          {item[0].description}

@@ -48,7 +48,7 @@ export default function CardItem({ item }) {
                 />
                 <CardMedia
                     className={classes.media}
-                    image={item.urlToImage}
+                    image={item.image}
                 />
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
