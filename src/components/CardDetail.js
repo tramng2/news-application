@@ -18,7 +18,7 @@ function CardDetail() {
 
     const fetchItem = async () => {
         const { data: { articles } } = await axios
-                .get(`https://gnews.io/api/v4/search?q=example&token=${process.env.REACT_APP_NEWS_API_KEY}`)
+                .get(`https://gnews.io/api/v4/search?q=example&lang=en&token=${process.env.REACT_APP_NEWS_API_KEY}`)
 
         const article = articles.filter((el, idx) => idx === +index)
         setItem(article);
@@ -27,7 +27,7 @@ function CardDetail() {
     const classes = useStyles();
     return (
         <div>
-            {!item.length ? <h4>Loading</h4> :
+            {!item.length ? <h4>Loading...</h4> :
                  <Card className={classes.root}>
                  <CardHeader
                      className={classes.header}

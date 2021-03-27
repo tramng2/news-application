@@ -6,7 +6,7 @@ function Home() {
     const [data, setData] = useContext(DataContext);
     return (
         <div>
-            {!data.length ? <h4>Loading</h4> : <Card data={data}/>}
+            {!data.length ? <h4>Loading...</h4> : <Card data={data}/>}
         </div>
     )
 }

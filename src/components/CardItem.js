@@ -41,7 +41,7 @@ const theme = createMuiTheme({
             title: {
                 display: '-webkit-box',
                 WebkitBoxOrient: 'vertical',
-                WebkitLineClamp: 2,
+                WebkitLineClamp: 3,
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
             }

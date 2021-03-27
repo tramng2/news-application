@@ -1,9 +1,8 @@
 import React from 'react';
-import {AppBar, Toolbar, InputBase, Button} from '@material-ui/core';
+import { AppBar, Toolbar, Button } from '@material-ui/core';
 import { fade, makeStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import SearchIcon from '@material-ui/icons/Search';
 import { Link } from 'react-router-dom'
-
+import Search from './Search'
 
 export default function SearchAppBar() {
     const classes = useStyles();
@@ -21,19 +20,9 @@ export default function SearchAppBar() {
                                 <Button>About</Button>
                             </Link>
                         </ul>
-                    <div className={classes.search}>
-                        <Button>
-                            <SearchIcon />
-                        </Button>
-                        <InputBase
-                            placeholder="Search…"
-                            classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                            }}
-                            inputProps={{ 'aria-label': 'search' }}
-                        />
-                    </div>
+                        <div className={classes.search}>
+                            <Search />
+                        </div>
                     </ThemeProvider>
 
                 </Toolbar>
@@ -64,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     search: {
+        display: 'flex',
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
         backgroundColor: fade(theme.palette.common.white, 0.15),
