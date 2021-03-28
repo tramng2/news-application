@@ -12,7 +12,7 @@ function About() {
             <div className="about_title">
                 <Typography component="div">
                     <Box fontWeight="fontWeightBold" m={1} fontSize="h3.fontSize">
-                        Tech News. <br />Be updated.
+                        Latest News. <br />Be updated.
                         </Box>
                     <Box fontWeight="fontWeightRegular" m={1}>
                         Update the latest tech news. What matters in technology daily

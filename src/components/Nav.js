@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppBar, Toolbar, Button } from '@material-ui/core';
-import { fade, makeStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { fade, makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom'
 import Search from './Search'
 
@@ -11,39 +11,34 @@ export default function SearchAppBar() {
         <div className={classes.root}>
             <AppBar position="static">
                 <Toolbar>
-                    <ThemeProvider theme={theme}>
-                        <ul>
-                            <Link to='/' style={{ textDecoration: "none" }}>
-                                <Button>Home</Button>
-                            </Link>
-                            <Link to='/about' style={{ textDecoration: "none" }}>
-                                <Button>About</Button>
-                            </Link>
-                        </ul>
-                        <div className={classes.search}>
-                            <Search />
-                        </div>
-                    </ThemeProvider>
-
+                    <ul>
+                        <Link to='/' style={{ textDecoration: "none" }}>
+                            <Button
+                                classes={{
+                                    root: classes.button_root
+                                }}>
+                                Home</Button>
+                        </Link>
+                        <Link to='/about' style={{ textDecoration: "none" }}>
+                            <Button>About</Button>
+                        </Link>
+                    </ul>
+                    <div className={classes.search}>
+                        <Search />
+                    </div>
                 </Toolbar>
             </AppBar>
         </div>
     );
 }
 
-const theme = createMuiTheme({
-    overrides: {
-        MuiButton: {
-            root: {
-                color: 'white'
-            },
-        }
-    }
-});
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
         justifyContent: 'space-between'
+    },
+    button_root: {
+        color: 'white'
     },
     title: {
         flexGrow: 1,

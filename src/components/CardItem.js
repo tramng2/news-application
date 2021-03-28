@@ -1,19 +1,17 @@
 import React from 'react';
-import { makeStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { makeStyles} from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-
+import { CardHeader, CardMedia, CardContent, Typography } from '@material-ui/core';
 
 export default function CardItem({ item }) {
     const classes = useStyles();
-
     return (
-        <ThemeProvider theme={theme}>
             <Card className={classes.root}>
                 <CardHeader
+                    classes={{
+                        title: classes.title,
+                        root: classes.title_root
+                    }}
                     className={classes.header}
                     title={item.title}
                     subheader={`public at: ${item.publishedAt}`}
@@ -23,40 +21,20 @@ export default function CardItem({ item }) {
                     image={item.image}
                 />
                 <CardContent>
-                    <Typography variant="body2" color="textSecondary" component="p">
+                    <Typography
+                        classes={{
+                            body2: classes.body2
+                        }}
+                        variant="body2"
+                        color="textSecondary"
+                        component="p"
+                    >
                         {item.description}
                     </Typography>
                 </CardContent>
             </Card>
-        </ThemeProvider>
     );
 }
-
-const theme = createMuiTheme({
-    overrides: {
-        MuiCardHeader: {
-            root: {
-                alignItems: 'start'
-            },
-            title: {
-                display: '-webkit-box',
-                WebkitBoxOrient: 'vertical',
-                WebkitLineClamp: 3,
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-            }
-        },
-        MuiTypography: {
-            body2 : {
-                display: '-webkit-box',
-                WebkitBoxOrient: 'vertical',
-                WebkitLineClamp: 5,
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-            }
-        }
-    }
-});
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -68,4 +46,21 @@ const useStyles = makeStyles((theme) => ({
         height: 0,
         paddingTop: '56.25%', // 16:9
     },
+    title: {
+        display: '-webkit-box',
+        WebkitBoxOrient: 'vertical',
+        WebkitLineClamp: 3,
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+    },
+    title_root: {
+        alignItems: 'start'
+    },
+    body2: {
+        display: '-webkit-box',
+        WebkitBoxOrient: 'vertical',
+        WebkitLineClamp: 5,
+        overflow: 'hidden',
+        textOverflow: 'ellipsis'
+    }
 }));

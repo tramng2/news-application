@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
 import '../App.css';
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Typography, Card, CardMedia, CardHeader, CardContent } from '@material-ui/core'
@@ -8,20 +8,20 @@ import { makeStyles } from '@material-ui/core/styles';
 
 function CardDetail() {
     const { index, title } = useParams();
+    const [item, setItem] = useState('');
+
 /*eslint-disable */
     useEffect(() => {
         fetchItem()
     }, [index, title]);
 /*eslint-enable */
 
-    const [item, setItem] = useState('');
-
     const fetchItem = async () => {
         const { data: { articles } } = await axios
                 .get(`https://gnews.io/api/v4/search?q=example&lang=en&token=${process.env.REACT_APP_NEWS_API_KEY}`)
 
         const article = articles.filter((el, idx) => idx === +index)
-        setItem(article);
+        setItem(article) ;
     }
 
     const classes = useStyles();
